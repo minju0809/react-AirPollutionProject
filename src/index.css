@@ -56,6 +56,10 @@ body {
   margin: 4px;
 }
 
+.icons-list {
+  color: red;
+}
+
 /* .content-top {
   width: 200px;
   display: flex;

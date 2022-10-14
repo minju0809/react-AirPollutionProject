@@ -1,5 +1,7 @@
 import data2 from "../data2";
+import Bookmark from "./Bookmark";
 import Card from "./Card";
+
 
 const Content = () => {
   return (
@@ -16,7 +18,7 @@ const Content = () => {
                   <h4>_{sidoName}</h4>
                 </div>
                 <div className="content-card-bookmark">
-                  <h4>즐겨찾기</h4>
+                  <Bookmark />
                 </div>
               </div>
               <div>
