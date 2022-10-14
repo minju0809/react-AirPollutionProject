@@ -9,7 +9,7 @@ const Content = () => {
       <div>
         {/* {(() => {})()} */}
         {data2.map(({ stationName, sidoName, pm10Grade, dataTime, pm10Value }) => {
-          console.log(pm10Grade)
+          // console.log(pm10Grade)
           return (
             <Card key={stationName} className="content-card">
               <div className="content-card-top">

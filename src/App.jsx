@@ -1,7 +1,7 @@
 import SelectBox from "./components/SelectBox";
 import Content from "./components/Content";
 import Footer from "./components/Footer";
-import React, { Component } from "react";
+import React from 'react'
 import { BrowserRouter, Routes, Route, Link, Switch } from "react-router-dom";
 
 const OPTIONS = [
@@ -15,8 +15,7 @@ const OPTIONS = [
   { value: "jeju", name: "제주" },
 ];
 
-export default function App() {
-
+function App() {
   return (
     <BrowserRouter>
       <div className="App">
@@ -29,4 +28,4 @@ export default function App() {
   );
 }
 
-// export default App;
+export default App;
