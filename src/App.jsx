@@ -22,17 +22,7 @@ export default function App() {
       <div className="App">
         {/* 오류는 없으나 defaultValue가 적용되지 않음 */}
         <SelectBox options={OPTIONS} defaultValue="인천"></SelectBox>
-        {/* newData 값이 나오지 않음 */}
         <Content />
-        {/* 카드에서 보여줄 형식 참고 자료 */}
-        {/* {members.member.map((member, i) => (
-          <Card 
-            key={"card-" + i} 
-            route={{ history, match }} 
-            memberData={member} 
-            onRemoveCard={removeCard} 
-          />
-        ))} */}
         <Footer />
       </div>
     </BrowserRouter>

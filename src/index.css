@@ -26,7 +26,7 @@ body {
 }
 
 .content-card {
-  margin: 8px;
+  margin: 12px 0;
   background-color: aqua;
   width: 20rem;
   height: 8rem;
@@ -37,13 +37,32 @@ body {
   border-radius: 20px;
 }
 
-.content-top {
+.content-card-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.content-card-local {
+  margin: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.content-card-bookmark {
+  display: flex;
+  align-items: center;
+  margin: 4px;
+}
+
+/* .content-top {
   width: 200px;
   display: flex;
   justify-content: space-between;
-}
+} */
 
-.content-middle {
+/* .content-middle {
   background-color: white;
   width: 100px;
   height: 80px;
@@ -52,7 +71,7 @@ body {
   align-items: center;
   flex-direction: column;
   border-radius: 8px;
-}
+} */
 
 .footer-container {
   position: absolute;
