@@ -11,7 +11,7 @@
 }
 
 body {
-  background-color: blue;
+  background-color: skyblue;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -27,7 +27,7 @@ body {
 
 .content-card {
   margin: 12px 0;
-  background-color: aqua;
+  /* background-color: aqua; */
   width: 20rem;
   height: 8rem;
   display: flex;
@@ -35,6 +35,13 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 20px;
+}
+
+.status1 {
+  background-color: black;
+}
+.status2 {
+  background-color: red;
 }
 
 .content-card-top {

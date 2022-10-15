@@ -1,8 +1,10 @@
 import SelectBox from "./components/SelectBox";
 import Content from "./components/Content";
 import Footer from "./components/Footer";
-import React from 'react'
+import React from "react";
 import { BrowserRouter, Routes, Route, Link, Switch } from "react-router-dom";
+
+import { useState } from "react";
 
 const OPTIONS = [
   { value: "seoul", name: "서울" },
@@ -16,12 +18,13 @@ const OPTIONS = [
 ];
 
 function App() {
+  const [area, setArea] =useState("종로구");
   return (
     <BrowserRouter>
       <div className="App">
         {/* 오류는 없으나 defaultValue가 적용되지 않음 */}
-        <SelectBox options={OPTIONS} defaultValue="인천"></SelectBox>
-        <Content />
+        <SelectBox changeArea={setArea} defaultValue={area} options={OPTIONS}></SelectBox>
+        <Content area={area} />
         <Footer />
       </div>
     </BrowserRouter>
