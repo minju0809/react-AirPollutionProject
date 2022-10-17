@@ -6,8 +6,9 @@ import Content from "../components/Content";
 export default function BookmarkArea() {
   return (
     <div>
-      <SelectBox changeArea={setArea} defaultValue={area}></SelectBox>
-      <Content area={area} />
+      즐겨찾기
+      {/* <SelectBox changeArea={setArea} defaultValue={area}></SelectBox>
+      <Content area={area} /> */}
       <Footer />
     </div>
   );

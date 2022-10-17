@@ -6,8 +6,9 @@ import Content from "../components/Content";
 export default function AllArea() {
   return (
     <div>
-      <SelectBox changeArea={setArea} defaultValue={area}></SelectBox>
-      <Content area={area} />
+      전체 시도
+      {/* <SelectBox changeArea={setArea} defaultValue={area}></SelectBox>
+      <Content area={area} /> */}
       <Footer />
     </div>
   );
