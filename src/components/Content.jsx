@@ -1,13 +1,14 @@
 import data2 from "../data2";
-import Bookmark from "./Bookmark";
+// import Bookmark from "./Bookmark";
 import Card from "./Card";
-
+import { StarOutlined, StarFilled } from "@ant-design/icons";
 import { useState, useEffect } from "react";
 
 const Content = (props) => {
   const [bookmark, setBookmark] = useState({});
+
   const handleBookmark = (name, info) => {
-    console.log(name, info);
+    console.log("@@@@@", name, info);
     const prev_bookmark = localStorage.getItem("bookmark");
     if (!prev_bookmark) {
       // create first
@@ -31,6 +32,7 @@ const Content = (props) => {
 
     console.log("localStorage", localStorage.getItem("bookmark"));
   };
+  
   const filterArea = (area) => {
     const filtered = data2.filter((station) => station.stationName === area);
     console.log("filtered", filtered);
@@ -46,7 +48,7 @@ const Content = (props) => {
                 <h4>_{info.sidoName}</h4>
               </div>
               <div className="content-card-bookmark" onClick={() => handleBookmark(info.stationName, info)}>
-                {bookmark[info.stationName] ? "있다": "없다"}
+                {bookmark[info.stationName] ? <StarFilled className="icon"/> : <StarOutlined className="icon"/> }
               </div>
             </div>
             <div>
@@ -67,17 +69,19 @@ const Content = (props) => {
       return null;
     }
   };
+
   useEffect(() => {
     console.log("component mount");
     const bookmarkData = localStorage.getItem("bookmark");
     if (bookmarkData) setBookmark(JSON.parse(bookmarkData));
   }, []);
+  
   useEffect(() => {
     console.log("bookmark changed", bookmark);
   }, [bookmark]);
+
   return (
     <section className="content">
-      {props.area}
       {filterArea(props.area)}
     </section>
   );

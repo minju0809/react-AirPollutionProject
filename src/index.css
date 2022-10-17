@@ -22,12 +22,10 @@ body {
 }
 
 .header-container {
-  background-color: blueviolet;
 }
 
 .content-card {
   margin: 12px 0;
-  /* background-color: aqua; */
   width: 20rem;
   height: 8rem;
   display: flex;
@@ -36,53 +34,41 @@ body {
   align-items: center;
   border-radius: 20px;
 }
-
-.status1 {
-  background-color: black;
-}
-.status2 {
-  background-color: red;
-}
-
 .content-card-top {
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
 }
-
 .content-card-local {
   margin: 4px;
   display: flex;
   align-items: center;
 }
-
 .content-card-bookmark {
   display: flex;
   align-items: center;
   margin: 4px;
 }
 
-.icons-list {
-  color: red;
+.status1 {
+  background-color: blue;
 }
-
-/* .content-top {
-  width: 200px;
-  display: flex;
-  justify-content: space-between;
-} */
-
-/* .content-middle {
-  background-color: white;
-  width: 100px;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border-radius: 8px;
-} */
+.status2 {
+  background-color: green;
+}
+.status3 {
+  background-color: yellow;
+}
+.status4 {
+  background-color: orange;
+}
+.status5 {
+  background-color: red;
+}
+.icon {
+  color: white;
+}
 
 .footer-container {
   position: absolute;
@@ -90,8 +76,16 @@ body {
   left: 0;
   right: 0;
   margin: auto 8rem;
-  background-color: aliceblue;
+  background-color: white;
+  padding: 4px;
   padding: 4px;
   display: flex;
   justify-content: space-between;
+}
+.footer-contents {
+  border: 1px solid skyblue;
+  border-radius: 8px;
+  padding: 4px;
+  margin: 2px;
+  cursor: pointer;
 }

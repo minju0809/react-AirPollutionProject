@@ -1,9 +1,11 @@
 import data2 from "../data2";
+
 const SelectBox = (props) => {
   console.log("data2", data2);
+
   const handleChange = (e) => {
-    props.changeArea(e.target.value);
-    console.log(e.target.value);
+    props.changeArea(e.target.value); 
+    console.log('handleChange', e.target.value);
   };
 
   return (
