@@ -46,11 +46,11 @@ const Content = (props) => {
             </div>
             <div>
               <h2>
-                {info.pm10Grade == "1" && "좋음"}
-                {info.pm10Grade == "2" && "보통"}
-                {info.pm10Grade == "3" && "한 때 나쁨"}
-                {info.pm10Grade == "4" && "나쁨"}
-                {info.pm10Grade == "5" && "매우 나쁨"}
+                {info.pm10Grade === "1" && "좋음"}
+                {info.pm10Grade === "2" && "보통"}
+                {info.pm10Grade === "3" && "한 때 나쁨"}
+                {info.pm10Grade === "4" && "나쁨"}
+                {info.pm10Grade === "5" && "매우 나쁨"}
               </h2>
             </div>
             <h4>미세먼지 수치: {info.pm10Value}</h4>
