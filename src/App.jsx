@@ -1,20 +1,60 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyArea from "./pages/MyArea";
-import BookmarkArea from "./pages/BookmarkArea";
 import AllArea from "./pages/AllArea";
+import BookmarkArea from "./pages/BookmarkArea";
+import Footer from "./components/Footer";
+import { useState } from "react";
 
 function App() {
-  const area = "종로구";
+  const [page, setPage] = useState(0);
+  const [bookmark, setBookmark] = useState({});
+
+  const handleBookmark = (name, info) => {
+    const prev_bookmark = localStorage.getItem("bookmark");
+    if (!prev_bookmark) {
+      const temp = {
+        [name]: info,
+      };
+      localStorage.setItem("bookmark", JSON.stringify(temp));
+    } else {
+      const data = JSON.parse(prev_bookmark);
+      const exist = data[name];
+      if (exist) {
+        delete data[name];
+      } else {
+        data[name] = info;
+      }
+      setBookmark(data);
+      localStorage.setItem("bookmark", JSON.stringify(data));
+    }
+    console.log("localStorage", localStorage.getItem("bookmark"));
+  };
 
   return (
-    <BrowserRouter className="App">
-      <Routes>
-        <Route index element={<MyArea />} />
-        <Route path="AllArea" element={<AllArea area={area} />} />
-        <Route path="BookmarkArea" element={<BookmarkArea />} />
-      </Routes>
-    </BrowserRouter>
+    <div className="App">
+      {page === 0 && (
+        <MyArea
+          bookmark={bookmark}
+          handleBookmark={handleBookmark}
+          setPage={setPage}
+        />
+      )}
+      {page === 1 && (
+        <AllArea
+          bookmark={bookmark}
+          handleBookmark={handleBookmark}
+          setPage={setPage}
+        />
+      )}
+      {page === 2 && (
+        <BookmarkArea
+          bookmark={bookmark}
+          handleBookmark={handleBookmark}
+          setPage={setPage}
+        />
+      )}
+      <Footer setPage={setPage} />
+    </div>
   );
 }
 
