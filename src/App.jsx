@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MyArea from "./pages/MyArea";
 import AllArea from "./pages/AllArea";
 import BookmarkArea from "./pages/BookmarkArea";
 import Footer from "./components/Footer";
-import { useState } from "react";
 
 function App() {
   const [page, setPage] = useState(0);
@@ -29,6 +28,14 @@ function App() {
     }
     console.log("localStorage", localStorage.getItem("bookmark"));
   };
+
+  // localStorage의 정보가 새로고침 되어도 저장되어 있게 해줌.
+  useEffect(() => {
+    const savedBookmark = localStorage.getItem('bookmark');
+    if (savedBookmark) {
+      setBookmark(JSON.parse(savedBookmark));
+    }
+  }, []);
 
   return (
     <div className="App">

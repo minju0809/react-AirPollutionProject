@@ -32,7 +32,7 @@ export default function AllArea({ bookmark, handleBookmark }) {
     const filtered = data.response.body.items.filter(
       (station) => station.stationName === area
     );
-    console.log(filtered);
+    console.log("filterArea", filtered);
     if (filtered.length) {
       return filtered.map((info, idx) => {
         return (
@@ -74,16 +74,17 @@ export default function AllArea({ bookmark, handleBookmark }) {
 
   const onSelect = (s) => {
     const all = data.response.body.items;
-    console.log(all);
+    console.log("모두", all);
     const filtered = all.filter((item) =>
       item.sidoName.includes(s.target.value)
     );
-    console.log(s.target.value);
+    console.log("선택한 시도", s.target.value);
     setSido(s.target.value);
   };
 
   return (
     <>
+    {/* 선택 박스 */}
       <select onChange={onSelect}>
         {sidoMenus.map((sido, idx) => (
           <option key={idx}>{sido}</option>
