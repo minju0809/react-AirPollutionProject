@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
 import Content from "../components/Content";
 
-export default function BookmarkArea({ bookmark }) {
+export default function BookmarkArea({ bookmark, handleBookmark }) {
   console.log(bookmark);
   useEffect(() => {
     console.log("bookmark changed", bookmark);
   }, [bookmark]);
   return (
     <>
-      안나오네. 코드 실행이 안됨.
-      {bookmark.length > 0 && bookmark.map((b, idx) => <div key={idx}>{b.stationName}</div>)}
+      {Object.values(bookmark).length > 0 &&
+        Object.values(bookmark).map((area, idx) => (
+          <Content
+            key={idx}
+            info={area}
+            isBookmark={bookmark[area.stationName]}
+            handleBookmark={handleBookmark}
+          />
+        ))}
     </>
   );
 }

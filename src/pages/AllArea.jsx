@@ -4,8 +4,8 @@ import Content from "../components/Content";
 import places from "../data";
 
 export default function AllArea({ bookmark, handleBookmark }) {
-  const [area, setArea] = useState();
-  const [sido, setSido] = useState("전국");
+  const [area, setArea] = useState("");
+  const [sido, setSido] = useState("");
   const sidoMenus = [
     "전국",
     "서울",
@@ -28,10 +28,17 @@ export default function AllArea({ bookmark, handleBookmark }) {
   ];
   // console.log(data.response.body.items);
 
-  const filterArea = (area) => {
-    const filtered = data.response.body.items.filter(
-      (station) => station.stationName === area
+  const filterArea = () => {
+    const sidoFiltered = data.response.body.items.filter(
+      (info) => info.sidoName === sido
     );
+    console.log("sideofiltered", sidoFiltered, sido, area);
+    let filtered;
+    if (area !== "") {
+      filtered = sidoFiltered.filter((station) => station.stationName === area);
+    } else {
+      filtered = sidoFiltered;
+    }
     console.log("filterArea", filtered);
     if (filtered.length) {
       return filtered.map((info, idx) => {
@@ -80,24 +87,45 @@ export default function AllArea({ bookmark, handleBookmark }) {
     );
     console.log("선택한 시도", s.target.value);
     setSido(s.target.value);
+    setArea("");
+  };
+
+  const setFilter = (e) => {
+    console.log(e.target.value);
+    if (e.target.value === "전체") {
+      setArea("");
+    } else {
+      setArea(e.target.value);
+    }
   };
 
   return (
     <>
-    {/* 선택 박스 */}
+      {/* 선택 박스 */}
       <select onChange={onSelect}>
         {sidoMenus.map((sido, idx) => (
           <option key={idx}>{sido}</option>
         ))}
       </select>
-      <select>
-        {places[sido] && places[sido].children.map((gugun, idx) => (
-          <option key={idx}>{gugun}</option>
-        ))}
+      <select onChange={setFilter} value={area}>
+        {places[sido] &&
+          places[sido].children.map((gugun, idx) => (
+            <option key={idx}>{gugun}</option>
+          ))}
       </select>
       <div className="content">
-        <div>{filterArea(area)}</div>
-        <div>{viewAllArea()}</div>
+        {sido !== "" ? (
+          <div>{filterArea()}</div>
+        ) : area !== "" ? (
+          <div>{filterArea()}</div>
+        ) : (
+          <div>{viewAllArea()}</div>
+        )}
+        {/* {sido == "" || area == "" ? (
+          <div>{viewAllArea()}</div>
+        ) : (
+          <div>{filterArea()}</div>
+        )} */}
       </div>
     </>
   );
